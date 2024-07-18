@@ -1,7 +1,7 @@
 
 <ul>
 <?php
-$todoList = $todo->getTodo();
+$todoList = $todo->getTodos();
 foreach ($todoList as $item):
     echo "<li>{$item['text']}</li>";
 endforeach;
