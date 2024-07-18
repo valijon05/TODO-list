@@ -3,7 +3,7 @@
 <?php
 $todoList = $todo->getTodos();
 foreach ($todoList as $item):
-    echo "<li>{$item['text']}</li>";
+    echo "<li>{$item['name']}</li>";
 endforeach;
 ?>
 </ul>
@@ -12,4 +12,6 @@ endforeach;
     <input type="checkbox">
     <input type="text" name="text">
     <button type="submit">Add</button>
+    <button type="submit">Update</button>
+    <button type="submit">Delete</button>
 </form>

@@ -9,13 +9,13 @@ class Todo
     }
 
 
-    public function setTodo(strning $todoName)
+    public function setTodo(string $todoName)
     {
         $status   = false;
         $todoName = trim($todoName);
-        $stm      = $this->pdo->prepare('INSERT INTO todos(text,status) VALUES(:text,:status)');
-        $stm->binParam(':text',$_POST['text'],trim($todoName));
-        $stm->binParam(':status',$status, PDO::PARAM_BOOL);
+        $stm      = $this->pdo->prepare('INSERT INTO todos(name,status) VALUES(:text,:status)');
+        $stm->bindParam(':text',$todoName);
+        $stm->bindParam(':status',$status, PDO::PARAM_BOOL);
         $stm->execute();
     }
 
@@ -28,3 +28,4 @@ class Todo
 }
 
 ?>
+

@@ -9,8 +9,8 @@ $todo = new Todo($pdo);
 
 if(!empty($_POST)){
     if(strlen($_POST['text'])){
-    $todo->setTodo($_POST['text']);
-    header('Location: index.php'); 
+        $todo->setTodo($_POST['text']);
+        header('Location: index.php'); 
     }
 }
 require 'view.php';
@@ -18,4 +18,3 @@ require 'view.php';
 
 
 
-    
