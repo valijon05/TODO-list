@@ -7,7 +7,9 @@
     <title>TODO App</title>
 </head>
 <body>
-<?php require 'view/partials/navbar.php'; ?>
+<?php require 'view/partials/navbar.php'; 
+print_r($_SESSION);
+?>
 <div class="container">
    <h1>Notes page</h1>
 </div>
