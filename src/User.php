@@ -10,7 +10,8 @@ class User{
             echo "User already exists";
             return;
         }
-        $this->create();
+        $user = $this->create();
+        $_SESSION['user'] = $user['email'];
         header('Location: /');
     }
     
@@ -36,6 +37,11 @@ class User{
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->execute();
+
+            $stmt = $db->prepare("SELECT * FROM users WHERE email = :email");
+            $stmt->bindParam(':email', $email);
+            $stmt->execute(); 
+
             return $stmt->fetch(PDO::FETCH_ASSOC);
 
         }

@@ -16,8 +16,11 @@
           <a class="nav-link" href="/notes">Notes</a>
         </li>
       </ul>
+      <?php if(!$_SESSION['user']): ?>
         <a href="/login" class="btn btn-outline-primary mx-2">Login</a>
         <a href="/register" class="btn btn-outline-success">Register</a>
-    </div>
+      <?php else: echo $_SESSION['user']; 
+      endif; ?>
+      </div>
   </div>
 </nav>

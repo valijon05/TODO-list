@@ -10,7 +10,6 @@
 <?php require 'view/partials/navbar.php'; ?>
 <div class="container">
    <h1>Home page</h1>
-   <h2>Hello, user! </h2>
-</div>
+   <h2>Hello, <?= $_SESSION['user']?></h2>
 </body>
 </html>
