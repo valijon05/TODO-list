@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 $task = new Task();
+$router = new Router();
 
 if (count($_GET) > 0 || count($_POST) > 0) {
     if (isset($_POST['text'])) {
@@ -25,8 +26,8 @@ $router->get('/',fn() => require 'view/pages/home.php');
 $router->get('/todos',fn() => require 'view/pages/todos.php');
 $router->get('/notes',fn() => require 'view/pages/notes.php');
 
-$router->get('/login',fn() => require 'view/pages/login.php');
-$router->post('/login',fn() => (new User())->login());
+$router->get('/login',fn() => require 'view/pages/auth/login.php');
+$router->post('/login',fn() => (new User())->login($_POST['email'],$_POST['password']));
 
 $router->get('/register',fn() => require 'view/pages/auth/register.php');
 $router->post('/register',fn() => (new User)->register($_POST['email'],$_POST['password']));

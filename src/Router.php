@@ -37,7 +37,6 @@ class Router
         $uri        = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $path       = explode('/', $uri);
         $resourceId = $path[count($path) - 1];
-
         return is_numeric($resourceId) ? (int) $resourceId : false;
     }
 

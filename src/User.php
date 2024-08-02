@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 class User{
 
+    private $pdo;
+
+    public function __counter(){
+        $this->pdo = DB::connect();
+    }
+
     public function login(){
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -48,7 +54,7 @@ class User{
         return false;
     }
 
-    public function creaet(){
+    public function create(){
         if(isset($_POST['email']) && isset ($_POST['password'])){
             $email    = $_POST['email'];
             $password = $_POST['password'];
