@@ -33,3 +33,5 @@ $router->get('/logout',fn() => (new User())->logout());
 
 $router->get('/register',fn() => require 'view/pages/auth/register.php');
 $router->post('/register',fn() => (new User())->register($_POST['email'],$_POST['password']));// new user obekt olyatgandan kiyin qavis quyish shartmi?
+
+$router->notFound();

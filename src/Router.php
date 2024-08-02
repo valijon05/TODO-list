@@ -7,8 +7,7 @@ class Router
 {
     protected object|null $updates;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->updates = json_decode(file_get_contents('php://input'));
     }
 
@@ -24,24 +23,21 @@ class Router
         }
     }
 
-    public function isApiCall()
-    {
+    public function isApiCall(){
         $uri  = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $path = explode('/', $uri);
 
         return array_search('api', $path);
     }
 
-    public function getResourceId(): false|int
-    {
+    public function getResourceId(): false|int{
         $uri        = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $path       = explode('/', $uri);
         $resourceId = $path[count($path) - 1];
         return is_numeric($resourceId) ? (int) $resourceId : false;
     }
 
-    public function isTelegramUpdate(): bool
-    {
+    public function isTelegramUpdate(): bool{
         if (isset($this->updates->update_id)) {
             return true;
         }
@@ -49,15 +45,18 @@ class Router
         return false;
     }
 
-    public function sendResponse($data): void
-    {
+    public function sendResponse($data): void{
         header("Content-Type: application/json; charset=UTF-8");
 
         echo json_encode($data);
     }
 
-    public function getUpdates()
-    {
+    public function getUpdates(){
         return $this->updates;
+    }
+
+    public function notFound(){
+        http_response_code(404);
+        require 'view/pages/404.php';
     }
 }
