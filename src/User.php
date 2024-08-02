@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 class User{
 
-    private $pdo;
+    private PDO $pdo;
 
     public function __counter(){
         $this->pdo = DB::connect();
