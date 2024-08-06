@@ -23,8 +23,6 @@ if (count($_GET) > 0 || count($_POST) > 0) {
     }
 }
 
-$var = 0;
-
 Router::get('/',fn() => require 'view/pages/home.php');
 Router::get('/todos',fn() => require 'view/pages/todos.php');
 Router::get('/notes',fn() => require 'view/pages/notes.php');
