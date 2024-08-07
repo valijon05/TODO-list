@@ -19,6 +19,12 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
+                <?php
+                if(isset($_SESSION['message']) && $_SESSION['message']['error']){
+                    echo "<div class='alert alert-danger' role='alert'>". $_SESSION['message']['error'] . "</div>";
+                    unset($_SESSION['message']['error']);
+                }
+                ?>
                 <button type="submit" class="btn btn-primary">Submit (Отправить)</button>
             </form>
         </div>

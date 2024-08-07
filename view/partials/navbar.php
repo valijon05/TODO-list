@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/todos">Todo list</a>
         </li>
+        <?php //require 'view/partials/new-todo-from.php';?>
+
+
         <?php
         if(isset($_SESSION['user'])):?>
         <li class="nav-item">
@@ -26,6 +29,8 @@
       <?php else: {
         echo $_SESSION['user']; 
         echo "<a href='/logout'class='ms-2 text-underlined'>Logout</a>";
+        echo "<a href='https://t.me/rejalar_bot'class='ms-2 text-underlined'>Connect to telegram</a>";
+
       }
       endif; ?>
       </div>

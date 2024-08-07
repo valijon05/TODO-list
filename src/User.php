@@ -27,7 +27,9 @@ class User{
             exit();
         }
 
-        echo "Email or password is incorrect";
+        $_SESSION['message']['error'] = 'Wrong email or password';
+        header('Location: /login');
+
     }
 
     public function logout(){
